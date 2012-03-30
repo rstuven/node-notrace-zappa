@@ -1,0 +1,17 @@
+{
+  "author": "",
+  "name": "test-notrace-flot",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "dependencies": {
+    "zappa": "*",
+    "notrace": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
