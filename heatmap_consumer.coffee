@@ -7,10 +7,10 @@ consumer = require('zappa').app ->
     @on connection: ->
         @consumer.stop() if @consumer?
         @consumer = new Consumer
-        @consumer.start 'p..random_walk',
-            #window: '10000,1000'
-            window: '1000'
-            aggregate: 'lquantize(args[0];-1024;1024;128)'
+        @consumer.start 'p..random',
+            window: '10000,100'
+            interval: 1
+            aggregate: 'lquantize(args[1];0;1024;32)'
             callback: (sample) =>
                 @emit sample: sample.lquantize
 
@@ -20,8 +20,8 @@ consumer = require('zappa').app ->
         @on sample: ->
              updateHeatmap @data
 
-        COLUMNS = 40
-        CELL_SIZE = 15
+        COLUMNS = 150
+        CELL_SIZE = 5
         $ ->
             columns = []
             maxCount = 0
